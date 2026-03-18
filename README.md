@@ -85,23 +85,34 @@ python3 check_ur_status.py
 1. `Power On`
 2. `Brake Release`
 
+在从电脑发送夹爪命令前，还建议确认：
+
+1. UR5 电源已经打开
+2. 示教器上的当前程序已经停止
+
+如果示教器上有程序正在运行，外部下发的夹爪脚本可能不会按预期执行。
+
 ## 首次使用流程
 
 建议第一次上电后按下面顺序操作：
 
-1. 检查网络是否通
+1. 打开 UR5 电源
+
+2. 在示教器上停止当前程序
+
+3. 检查网络是否通
 
 ```bash
 ping 192.168.0.10
 ```
 
-2. 检查机器人状态
+4. 检查机器人状态
 
 ```bash
 python3 check_ur_status.py
 ```
 
-3. 第一次手动激活夹爪
+5. 第一次手动激活夹爪
 
 ```bash
 python3 control_gripper.py activate
@@ -272,6 +283,12 @@ python3 check_ur_status.py
 ```bash
 python3 check_ur_status.py
 ```
+
+同时检查：
+
+1. UR5 是否已经上电
+2. 示教器上的程序是否已经停止
+3. 当前是否有弹窗、保护停或阻塞状态
 
 ### 3. 地址解析失败
 
